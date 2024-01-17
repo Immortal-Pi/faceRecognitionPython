@@ -49,7 +49,7 @@ if __name__ == '__main__':
         imgS=cv2.resize(img,(0,0), None,0.25,0.25)
         imgS=cv2.cvtColor(imgS,cv2.COLOR_BGR2RGB)
 
-        faceCurrentFrame=face_recognition.face_locations(imgS)
+        faceCurrentFrame=face_recognition.face_locations(imgS) #used to detect face location in the frame imgS
         encodeCurFrame=face_recognition.face_encodings(imgS,faceCurrentFrame)
 
         #merge the webcam on background system
@@ -67,7 +67,7 @@ if __name__ == '__main__':
                 y1,x2,y2,x1=faceLoc
                 y1,x2,y2,x1=y1*4,x2*4,y2*4,x1*4
                 bbox = 90+x1, y1, x2-x1,y2-y1
-                cvzone.cornerRect(imageBackground,bbox,rt=0)
+                cvzone.cornerRect(imageBackground,bbox,rt=0) #mark face
 
 
         # cv2.imshow("webcam",img)
