@@ -23,9 +23,9 @@ def findEncodings(imagePath):
 
         """
         change color 
-        
+        face_Recognition.face_encodings(image)
         """
-        image=cv2.cvtColor(image,cv2.COLOR_RGB2BGR)
+        image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
         encode = face_recognition.face_encodings(image)[0]
         encodeList.append(encode)
 
@@ -38,5 +38,9 @@ encodingListKnownWithIDs=[encodeListKnown,studentIDs]
 # print(encodingListKnownWithIDs)
 print("Encoding complete")
 
+'''
+put the encoding to the file 
+
+'''
 with open("encodeFile.p",'wb') as file:
     pickle.dump(encodingListKnownWithIDs,file)
