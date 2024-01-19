@@ -30,7 +30,8 @@ if __name__=='__main__':
             y1, x2, y2, x1 = faceLoc
             y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
             bbox=x1,y1,x2-x1,y2-y1
-            cvzone.cornerRect(img,bbox,rt=0)
+            cv2.rectangle(img, (x1, y1), (x2, y2), color=(255, 0, 0), thickness=2)
+            # cvzone.cornerRect(img,bbox,rt=0)
             matchesIndex=np.argmin(distance)
             if matches[matchesIndex]:
                 print(f'known face detected:{studentIDs[matchesIndex]}')
