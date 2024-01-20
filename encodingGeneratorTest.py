@@ -1,8 +1,6 @@
 import os
-
 import face_recognition
 import pickle
-
 import firebase_admin.credentials
 import numpy as np
 import cv2
@@ -25,6 +23,7 @@ imageFolderPath='images'
 imagePathNames=[]
 imageNames=os.listdir(imageFolderPath)
 studentID=[]
+
 for image in imageNames:
     imagePathNames.append(cv2.imread(os.path.join(imageFolderPath,image)))
     studentID.append(os.path.splitext(image)[0])
@@ -32,6 +31,7 @@ for image in imageNames:
     fileName=f'{imageFolderPath}/{image}'
     blob=bucket.blob(fileName)
     blob.upload_from_filename(fileName)
+
 KnowImageEncodeList=encodeImagesandPath(imagePathNames)
 KnowImageEncodeListwithStudentID=KnowImageEncodeList,studentID
 
