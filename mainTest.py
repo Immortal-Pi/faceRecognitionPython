@@ -46,7 +46,7 @@ if __name__=='__main__':
                 StudentInfo=db.reference(f'StudentsTest2/{studentIDs[MatchIndex]}').get()
 
                 cv2.putText(image,f"NAME: {StudentInfo['name']}",(50,50),cv2.FONT_HERSHEY_SIMPLEX,1,thickness=2,color=(0,0,0))
-                cv2.putText(image, studentIDs[MatchIndex], (50, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, thickness=2,color=(0, 0, 0))
+                cv2.putText(image, f'ID:{studentIDs[MatchIndex]}', (50, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, thickness=2,color=(0, 0, 0))
                 cv2.putText(image, f"AGE: {StudentInfo['age']}", (50, 110), cv2.FONT_HERSHEY_SIMPLEX, 1, thickness=2,
                             color=(0, 0, 0))
                 cv2.putText(image, f"WEIGHT: {StudentInfo['weight']}", (50, 140), cv2.FONT_HERSHEY_SIMPLEX, 1, thickness=2,
