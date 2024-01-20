@@ -9,7 +9,11 @@ from firebase_admin import db
 from firebase_admin import storage
 
 cred=credentials.Certificate("serviceAccountKey.json")
+'''
 
+to add photo files to storange bucket
+we provice the URL's 
+'''
 firebase_admin.initialize_app(cred,{
     'databaseURL':"https://facerecognitionrealtimepython-default-rtdb.firebaseio.com/",
     'storageBucket':"facerecognitionrealtimepython.appspot.com"
@@ -23,7 +27,7 @@ for image in imagesNameList:
     # studentIDs.append(image.split('.')[0])
     studentIDs.append(os.path.splitext(image)[0])
     fileName=f'{folderImagesPath}/{image}'
-    print(fileName)
+    # print(fileName)
     buket=storage.bucket()
     blob=buket.blob(fileName)
     blob.upload_from_filename(fileName)
